@@ -8,3 +8,6 @@ used a keyboard input string funnctions for the operator to perform,w-front,s-ba
 i chose pins 8,10 for motor 1 and pins 12,5 for motor 2 terminals
 gave analog output for the speed of motor,250 for front and back ; 190 for left and right;
 gave all the connections accordingly to the aurduino 
+
+coming to my code,the part where the string input has to be taken,that was the problem
+i compared string to char which i realised at the end and made a change by adding a new function equals() when comparing the keyboarrd input that is char and string
