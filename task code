@@ -1,0 +1,89 @@
+//motor 1
+ int a=8;
+ int b=10;
+ //motor 2
+ int c=12;
+ int d=5;
+ int EA=3;
+ int EB=4;
+ void front()
+ {
+   analogWrite(EA,250);
+   analogWrite(EB,250);
+   
+   digitalWrite(a,HIGH);
+   digitalWrite(c,HIGH);
+   digitalWrite(b,LOW);
+   digitalWrite(d,LOW);
+ }
+ void back()
+ {
+    analogWrite(EA,250);
+   analogWrite(EB,250);
+   digitalWrite(c,HIGH);
+   digitalWrite(d,HIGH);
+   digitalWrite(a,LOW);
+   digitalWrite(b,LOW);
+ }
+ void left()
+ {
+    analogWrite(EA,190);
+   analogWrite(EB,190);
+   digitalWrite(c,HIGH);
+   digitalWrite(d,LOW);
+   digitalWrite(a,LOW);
+   digitalWrite(b,HIGH);
+ }
+ void right()
+ {
+    analogWrite(EA,190);
+   analogWrite(EB,190);
+   digitalWrite(a,HIGH);
+   digitalWrite(d,HIGH);
+   digitalWrite(c,LOW);
+   digitalWrite(b,LOW);
+ }
+ 
+ void setup() {
+   pinMode(a,OUTPUT);
+   pinMode(b,OUTPUT);
+   pinMode(c,OUTPUT);
+   pinMode(d,OUTPUT);
+   pinMode(EA,OUTPUT);
+   pinMode(EB,OUTPUT);
+   Serial.begin(9600);
+ }
+ 
+ 
+ void loop() 
+ {
+   Serial.println("enter key:\n");
+   if(Serial.available())
+   {
+     String key=Serial.readString();
+   if(key.equals("W"))
+   {
+     front();
+     Serial.println("forward\n");
+     delay(1000);
+   }
+   else if(key.equals("S"))
+   {
+     back();
+     Serial.println("backward\n");
+     delay(1000);
+   }
+   else if(key.equals("A"))
+   {
+     left();
+     Serial.println("left\n");
+     delay(1000);
+   }
+   else if(key.equals("D"))
+   {
+     right();
+     Serial.println("right\n");
+     delay(1000);
+   }
+   }
+}
